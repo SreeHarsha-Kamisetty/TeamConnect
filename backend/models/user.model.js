@@ -12,13 +12,14 @@ const userSchema = mongoose.Schema({
   email: {
     type: String,
   },
+  image:String,
   workspaces:[
     {
         id:String,
         workspacename:String
     }
   ]
-});
+},{versionKey:false});
 
 const UserModel = mongoose.model("user",userSchema)
 
