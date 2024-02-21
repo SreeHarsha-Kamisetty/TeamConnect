@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video App</title>
+    <link rel="stylesheet" href="./videopagestyle.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <h1>Our Video Call App</h1>
+    <div id="video-container">
+      <video id="local-video" autoplay  playsinline>Hello</video>
+      <video id="remote-video" autoplay playsinline></video>
+    </div>
+    <div id="user-controls">
+      <button id="hangup">Hang Up</button>
+      <button id="answer">Answer</button>
+    </div>
+    <script
+      src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+      integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./videoscript.js"></script>
+  </body>
+</html>
