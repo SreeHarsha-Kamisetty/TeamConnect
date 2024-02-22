@@ -23,7 +23,42 @@ app.listen(PORT,async()=>{
         console.log("Connected to DB")
         console.log(`Server running at http://localhost:${PORT}`)
     } catch (error) {
-        
+        console.log(err);
     }
     
 })
+const io = require('socket.io')(server, {
+    cors: {
+        origin: ['http://127.0.0.1:5500'],
+        methods: ['GET', 'POST'],
+        credentials: true
+    },
+});
+
+app.use(express.static(path.join(__dirname, 'view/index.html')));
+
+io.on('connection', onConnected);
+
+let socketsConnected = new Set();
+
+function onConnected(socket) {
+    console.log(socket.id);
+    socketsConnected.add(socket.id);
+
+    io.emit('clients-total', socketsConnected.size);
+
+    socket.on('disconnect', () => {
+        console.log('Socket disconnected', socket.id);
+        socketsConnected.delete(socket.id);
+        io.emit('clients-total', socketsConnected.size);
+    });
+
+    socket.on('message', (data) => {
+        console.log(data);
+        socket.broadcast.emit('chat-mesg', data);
+    });
+
+    socket.on('feedback', (data) => {
+        socket.broadcast.emit('feedback', data);
+    });
+}
