@@ -57,17 +57,42 @@ loginBtn.addEventListener("click",()=>{
 
 async function register(email,username,password){
     try {
-        
+        let res = await fetch(`${backendURL}/users/register`,{
+            method: "POST",
+            headers:{
+                "Content-type" : "application/json"
+            },
+            body: JSON.stringify({
+                userName:username,
+                password:password,
+                email:email
+            })
+        })
+
+        let data = await res.json();
+        console.log(data)
 
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
 async function login(email,password){
     try {
-        
+        let res = await fetch(`${backendURL}/users/login`,{
+            method: "POST",
+            headers:{
+                "Content-type" : "application/json"
+            },
+            body:JSON.stringify({
+                email:email,
+                password:password
+            })
+        })
+
+        let data = await res.json();
+        console.log(data);
     } catch (error) {
-        
+        console.log(error)
     }
 }
