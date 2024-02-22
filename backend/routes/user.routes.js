@@ -56,7 +56,21 @@ UserRouter.post("/login",async(req,res)=>{
     }
 })
 
+UserRouter.patch("/update/details/:userID",async(req,res)=>{
+    try {
+        let {userID} = req.params
+        let user = await UserModel.findOne({_id:userID})
+        if(!user) return res.status(404).json({Error:"User not found"})
 
+        let payload = req.body
+
+        await UserModel.findByIdAndUpdate({_id:userID},payload);
+
+        res.status(200).json({Message:"User updated"})
+    } catch (error) {
+        res.status(400).json({Error:"Error during user update"})
+    }
+})
 
 module.exports={
     UserRouter
