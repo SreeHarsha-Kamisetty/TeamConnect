@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
 const { UserModel } = require("../models/user.model");
 require("dotenv").config()
-
+const {uploadfile} = require("../middlewares/uploadfile.middleware")
 const UserRouter = express.Router()
 
 
@@ -69,6 +69,24 @@ UserRouter.patch("/update/details/:userID",async(req,res)=>{
         res.status(200).json({Message:"User updated"})
     } catch (error) {
         res.status(400).json({Error:"Error during user update"})
+    }
+})
+
+
+UserRouter.patch("/update/image/:userID",uploadfile,async(req,res)=>{
+    try {
+        let image = req.publicURL
+
+        let {userID} = req.params
+        let user = await UserModel.findOne({_id:userID})
+        
+        if(!user) return res.status(404).json({Error:"User not found"})
+
+        await UserModel.findByIdAndUpdate({_id:userID},{image:image})
+        res.status(200).json({Message:"Profile picture updated",image})
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({Error:"Error during updating profile picture"})
     }
 })
 
