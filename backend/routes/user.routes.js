@@ -4,7 +4,7 @@ const express = require("express");
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
 const { UserModel } = require("../models/user.model");
-
+require("dotenv").config()
 
 const UserRouter = express.Router()
 
@@ -46,8 +46,8 @@ UserRouter.post("/login",async(req,res)=>{
             userID : user._id,
             userName :user.userName
         }
-        let secret_key = process.env.secret_key
-
+        let secret_key = process.env.SECRET_KEY
+       
         let access_token = jwt.sign(token_payload,secret_key)
 
         res.status(200).json({Message:"Login successful",access_token})
