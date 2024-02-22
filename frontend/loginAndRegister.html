@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<title>Login/SignUp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./loginAndRegister.css">
+</head>
+
+<body>
+
+<div class="container" id="container">
+	<div class="row">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			
+			<input type="text" placeholder="Name"  id="r-name" />
+			<input type="text" placeholder="Email" id="r-email" />
+			<input type="password" placeholder="Password" id="r-password" />
+			<button id="register">Sign Up</button>
+			<p id="mobile_para">Already have an Account? </p>
+			<button class="ghost_mobile" id="signIn_mobile">Sign In</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<input type="text" placeholder="Email" id="l-email" />
+			<input type="password" placeholder="Password" id="l-password" />
+			<a href="#">Forgot your password?</a>
+			<button id="login">Sign In</button>
+			<p id="mobile_para">Don't have an account? Sign up here !!</p>
+			<button class="ghost_mobile" id="signUp_mobile">Sign Up</button>
+
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Existing User?</h1>
+				<p>Please login with your registered credentials</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>New to our website?</h1>
+				<p>Please enter your details to get started</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+</body>
+<script src="loginAndRegister.js"></script>
+</html>
