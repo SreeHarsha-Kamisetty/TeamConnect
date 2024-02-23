@@ -50,7 +50,7 @@ UserRouter.post("/login",async(req,res)=>{
        
         let access_token = jwt.sign(token_payload,secret_key)
 
-        res.status(200).json({Message:"Login successful",access_token})
+        res.status(200).json({Message:"Login successful",access_token,user})
     } catch (error) {
         res.status(400).json({Error:"Error during login"})
     }
