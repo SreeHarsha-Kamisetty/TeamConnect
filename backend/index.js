@@ -48,6 +48,20 @@ function onConnected(socket) {
 
     io.emit('clients-total', socketsConnected.size);
 
+    socket.on('join room', (room) => {
+        socket.join(room);
+        console.log(`User joined room: ${room}`);
+    
+        // Listen for chat messages in the specific room
+        socket.on('chat message', (msg) => {
+          io.to(room).emit('chat message', msg); // Broadcast the message to all users in the room
+        });
+    
+        // Handle disconnection
+        socket.on('disconnect', () => {
+          console.log('User disconnected');
+        });
+      });
     socket.on('disconnect', () => {
         console.log('Socket disconnected', socket.id);
         socketsConnected.delete(socket.id);
@@ -56,7 +70,7 @@ function onConnected(socket) {
 
     socket.on('message', (data) => {
         console.log(data);
-        socket.broadcast.emit('chat-mesg', data);
+        socket.broadcast.emit('chat-group-mesg', data);
     });
 
     socket.on('feedback', (data) => {
