@@ -36,7 +36,7 @@ const io = require('socket.io')(server, {
     },
 });
 
-app.use(express.static(path.join(__dirname, 'view/index.html')));
+app.use(express.static(path.join(__dirname, '../frontend/view/chatbox.html')));
 
 io.on('connection', onConnected);
 
