@@ -26,6 +26,7 @@ let registerEmail = document.getElementById("r-email")
 let registerPassword = document.getElementById("r-password")
 
 let registerBtn = document.getElementById("register")
+let r_error = document.getElementById("r-error")
 
 registerBtn.addEventListener("click",()=>{
     let email = registerEmail.value
@@ -33,15 +34,18 @@ registerBtn.addEventListener("click",()=>{
         let password = registerPassword.value
     if(email !== "" && username !== "" && password !== ""){
             register(email,username,password);
+           
     }
     else{
-        console.log("error")
+        r_error.setAttribute("style","color:red;")
+        r_error.textContent = "Please fill all the required details"
     }
 })
 
 let loginEmail = document.getElementById("l-email")
 let loginPassword = document.getElementById("l-password")
 let loginBtn = document.getElementById("login")
+let l_error = document.getElementById("l-error");
 
 loginBtn.addEventListener("click",()=>{
     let email = loginEmail.value
@@ -51,7 +55,8 @@ loginBtn.addEventListener("click",()=>{
         login(email,password)
     }
     else{
-        console.log("error");
+        l_error.setAttribute("style","color:red;")
+        l_error.textContent = "Please fill the required fields"
     }
 })
 
@@ -71,9 +76,29 @@ async function register(email,username,password){
 
         let data = await res.json();
         console.log(data)
+        if(res.status == 200){
+            r_error.setAttribute("style","color:green");
+            r_error.textContent = "Registered successfully!"
+
+            setTimeout(()=>{
+                
+                r_error.textContent = ""
+            },3000)
+        }
+        else if(res.status == 401 ){
+            r_error.setAttribute("style","color: red");
+            r_error.textContent = "Account already exists. Please sign in"
+
+            setTimeout(()=>{
+                
+                r_error.textContent = ""
+            },3000)
+        }
+       
 
     } catch (error) {
         console.log(error)
+        
     }
 }
 
@@ -92,6 +117,39 @@ async function login(email,password){
 
         let data = await res.json();
         console.log(data);
+        localStorage.setItem("userName",data.user.userName)
+        localStorage.setItem("userId",data.user._id)
+        localStorage.setItem("userImage",data.user.image)
+
+        if(res.status == 200){
+            l_error.setAttribute("style","color:green;")
+            l_error.textContent = "Login Successful"
+
+            setTimeout(()=>{
+                
+                r_error.textContent = ""
+            },3000)
+        }
+        else if(res.status == 404){
+            l_error.setAttribute("style","color:red;")
+            l_error.textContent = "User not found. Please register"
+
+            setTimeout(()=>{
+                
+                r_error.textContent = ""
+            },3000)
+        }
+        else{
+            l_error.setAttribute("style","color:red;")
+            l_error.textContent = "Invalid Credentials"
+
+            setTimeout(()=>{
+                
+                r_error.textContent = ""
+            },3000)
+        }
+
+
     } catch (error) {
         console.log(error)
     }
