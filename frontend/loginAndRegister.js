@@ -35,10 +35,15 @@ registerBtn.addEventListener("click",()=>{
     if(email !== "" && username !== "" && password !== ""){
             register(email,username,password);
            
+           
     }
     else{
         r_error.setAttribute("style","color:red;")
         r_error.textContent = "Please fill all the required details"
+        setTimeout(()=>{
+                
+            r_error.textContent = ""
+        },3000)
     }
 })
 
@@ -53,10 +58,15 @@ loginBtn.addEventListener("click",()=>{
 
     if(email !== "" && password !== ""){
         login(email,password)
+       
     }
     else{
         l_error.setAttribute("style","color:red;")
         l_error.textContent = "Please fill the required fields"
+        setTimeout(()=>{
+                
+            l_error.textContent = ""
+        },3000)
     }
 })
 
@@ -127,7 +137,7 @@ async function login(email,password){
 
             setTimeout(()=>{
                 
-                r_error.textContent = ""
+                l_error.textContent = ""
             },3000)
         }
         else if(res.status == 404){
@@ -136,7 +146,7 @@ async function login(email,password){
 
             setTimeout(()=>{
                 
-                r_error.textContent = ""
+                l_error.textContent = ""
             },3000)
         }
         else{
@@ -145,7 +155,7 @@ async function login(email,password){
 
             setTimeout(()=>{
                 
-                r_error.textContent = ""
+                l_error.textContent = ""
             },3000)
         }
 
