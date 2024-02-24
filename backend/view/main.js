@@ -1,5 +1,5 @@
 // Socket.IO connection with user information
-const socket = io('http://localhost:4000', {
+const socket = io('http://localhost:8080', {
     query: {
         userId: localStorage.getItem('userName') // Use the user ID or any unique identifier
     }
@@ -19,29 +19,29 @@ if(img){
     imgSpan.innerHTML="";
     imgSpan.innerHTML=`<img id="img-tag" src=${img}>`
 }
-const logout = document.getElementById('logout');
-logout.addEventListener('click', () => {
-    // Make a request to the server to clear the session or delete the cookies
-    fetch('http://localhost:4000/users/logout', {
-        method: 'POST', // Use the appropriate HTTP method for your server
-        credentials: 'include', // Include credentials (cookies) in the request
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.mesg === "logout successful") {
-            // Clear local storage or perform other client-side cleanup
-            localStorage.clear();
-            // Redirect to the login page
-            window.location.href = '../../frontend/login.html';
-        }
-    })
-    .catch(error => {
-        console.error('Error during logout:', error);
-    });
-});
+// const logout = document.getElementById('logout');
+// logout.addEventListener('click', () => {
+//     // Make a request to the server to clear the session or delete the cookies
+//     fetch('http://localhost:4000/users/logout', {
+//         method: 'POST', // Use the appropriate HTTP method for your server
+//         credentials: 'include', // Include credentials (cookies) in the request
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//         if (data.mesg === "logout successful") {
+//             // Clear local storage or perform other client-side cleanup
+//             localStorage.clear();
+//             // Redirect to the login page
+//             window.location.href = '../../frontend/login.html';
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error during logout:', error);
+//     });
+// });
 
 
 

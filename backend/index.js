@@ -1,4 +1,5 @@
 const express = require("express")
+const path = require('path');
 const cors = require("cors")
 const morgan = require("morgan");
 const { DBConnection } = require("./db");
@@ -17,7 +18,7 @@ app.get("/",(req,res)=>{
 })
 
 
-app.listen(PORT,async()=>{
+const server=app.listen(PORT,async()=>{
     try {
         await DBConnection
         console.log("Connected to DB")
