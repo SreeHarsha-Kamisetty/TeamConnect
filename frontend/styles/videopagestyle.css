@@ -1,0 +1,122 @@
+body {
+  background-color: black;
+  font-family: "Helvetica";
+}
+
+h2 {
+  font-size: 18px;
+  padding: 10px 20px;
+  color: #ffffff;
+}
+
+#video-chat-form {
+  text-align: center;
+  max-width: 600px;
+  background-color: #555;
+  margin: 30px auto;
+  border-radius: 1rem;
+  padding-top: 5px;
+}
+
+#chat-window {
+  height: 400px;
+  overflow: auto;
+  background: #f9f9f9;
+}
+
+#output p {
+  padding: 14px 0px;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #555;
+}
+
+#feedback p {
+  color: #aaa;
+  padding: 14px 0px;
+  margin: 0 20px;
+}
+
+#output strong {
+  color: #574d4d;
+}
+
+label {
+  box-sizing: border-box;
+  display: block;
+  padding: 10px 20px;
+}
+
+input {
+  padding: 20px;
+  box-sizing: border-box;
+  background: #eee;
+  display: block;
+  width: 100%;
+  background: rgb(255, 253, 253);
+  font-family: Nunito;
+  font-size: 16px;
+}
+
+#join {
+  background: #302e2e23;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 1rem;
+  border: none;
+}
+
+#video-chat-rooms {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#video-chat-rooms > video{
+  margin: 2rem 0;
+  border-radius: 2rem;
+}
+
+.btn-group button {
+  background-color: #090120; /* Green background */
+  border: 1px solid white; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  margin: 0 1rem;
+  border-radius: 1rem;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #454c45;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (max-width: 991px)  {
+  
+  #video-chat-rooms {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+}
