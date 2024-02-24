@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Video Chat App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="video-chat-form">
+      <h2 class="text">Start Video Call</h2>
+      <input
+        id="roomName"
+        type="text"
+        name="roomName"
+        placeholder="Room Name"
+      />
+      <button id="join">Join</button>
+    </div>
+    <div id="video-chat-rooms">
+      <video id="user-video"></video>
+      <video id="peer-video"></video>
+    </div>
+
+    <div class="btn-group" id="btn-group" style="display: none">
+      <button id="muteButton">Mute</button>
+      <button id="leaveRoomButton">Leave Room</button>
+      <button id="hideCamera">Hide Camera</button>
+    </div>
+  </body>
+  <script
+    src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+    integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./script.js"></script>
+</html>
