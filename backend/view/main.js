@@ -67,7 +67,7 @@ function sendMessage() {
 }
 
 
-socket.on('chat-mesg',(data)=>{
+socket.on('chat-group-mesg',(data)=>{
     clearFeedback()
     console.log(data)
     addMessagetoUI(false,data)
@@ -130,3 +130,24 @@ function clearFeedback(){
         ele.parentNode.removeChild(ele)
     })
 }
+// Room name
+
+// Prompt the user to enter a room
+const room = prompt('Enter a room name:');
+socket.emit('join room', room);
+
+// Listen for chat messages
+socket.on('chat message', (msg) => {
+  $('#messages').append($('<li>').text(msg));
+});
+
+// Send chat message
+$('form').submit(function(e) {
+  e.preventDefault();
+  const msg = $('#msg-input').val();
+  if (msg) {
+    socket.emit('chat message', msg);
+    $('#msg-input').val('');
+  }
+  return false;
+});
