@@ -13,7 +13,7 @@ const nameInput=document.getElementById('name-input')
 nameInput.textContent=localStorage.getItem('userName')
 const mesg_form=document.getElementById('mesg-form')
 const mesgInput=document.getElementById('mesg-input')
-const imgSpan=document.getElementById('img-span');
+const imgSpan=document.getElementById('userimg');
 const img=localStorage.getItem('userImg');
 if(img){
     imgSpan.innerHTML="";
