@@ -1,5 +1,5 @@
 
-
+const backendURL = "https://teamconnect.onrender.com/"
 const socket = io('https://teamconnect.onrender.com',{transports:["websocket"], query: {
             userId: localStorage.getItem('userName') // Use the user ID or any unique identifier
          }})
@@ -12,10 +12,22 @@ nameInput.textContent=localStorage.getItem('userName')
 const mesg_form=document.getElementById('mesg-form')
 const mesgInput=document.getElementById('mesg-input')
 const imgSpan=document.getElementById('img-span');
-const img=localStorage.getItem('userImg');
+const img=localStorage.getItem('userImage');
+let test_img = document.getElementById("test-img")
+let user_email = document.getElementById('user-email')
+let user_name = document.getElementById('user-name')
+let user_email_2 = document.getElementById('user-email-2')
+let user_name_2 = document.getElementById('user-name-2')
 if(img){
+    
     imgSpan.innerHTML="";
     imgSpan.innerHTML=`<img id="img-tag" src=${img}>`
+    user_email.innerText = localStorage.getItem("userEmail")
+    user_name.innerText = localStorage.getItem('userName');
+    test_img.src = img
+    user_email_2.value = localStorage.getItem("userEmail")
+    user_name_2.value = localStorage.getItem('userName');
+    
 }
 
 
@@ -150,10 +162,10 @@ save_img.addEventListener("click",async()=>{
     let new_image = document.getElementById("new-profile-image")
     let image = new_image.files[0];
     let data = new FormData();
-    data.append('image',image)
+    data.append('file',image)
     
     try{
-        let res = await fetch(`https://coinsquare.onrender.com/user/profile/${localStorage.getItem('id')}`,{
+        let res = await fetch(`https://teamconnect.onrender.com/users/update/image/${localStorage.getItem('userId')}`,{
             method:"PATCH",
             headers:{
                 "enctype":"multipart/form-data"
@@ -161,14 +173,15 @@ save_img.addEventListener("click",async()=>{
             body:data
         })
         let new_data = await res.json();
-        console.log(new_data.updated);
+        console.log(new_data.image)
+        // console.log(new_data.updated);
         let test_img = document.getElementById("test-img")
-        test_img.src = new_data.updated
-        let profile_pic = document.getElementById("profile-pic")
-        profile_pic.src = new_data.updated
+        test_img.src = new_data.image
+        // let profile_pic = document.getElementById("profile-pic")
+        // profile_pic.src = new_data.updated
         // localStorage.removeItem("image");
-        // localStorage.setItem("image",new_data.updated);
-        window.location.href="./dashboard.html"
+        localStorage.setItem("userImage",new_data.image);
+        window.location.href="./chatbox.html"
     }
     catch(error){
         console.log(error)
@@ -226,4 +239,32 @@ const logout = async () => {
 document.getElementById("logout-btn").addEventListener("click", logout);
 
 
-// video call js
+// upload images/files
+let attachments = document.getElementById("new-attachments")
+let fileUploadBtn = document.getElementById("send-attachments")
+
+fileUploadBtn.addEventListener("click",()=>{
+    console.log("c")
+    uploadAttachment()
+})
+
+
+async function uploadAttachment(){
+    try {
+        let files = attachments.files[0];
+        let data = new FormData();
+        data.append('file',files)
+        let res = await fetch(`${backendURL}messages/files`,{
+            method:"POST",
+            headers:{
+                "enctype":"multipart/form-data"
+            },
+            body:data
+        })
+        let new_data = await res.json();
+        console.log(new_data)
+    } catch (error) {
+        
+    }
+}
+
