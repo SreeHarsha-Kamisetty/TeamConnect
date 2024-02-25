@@ -4,6 +4,7 @@ const cors = require("cors")
 const morgan = require("morgan");
 const { DBConnection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
+require('dotenv').config();
 const PORT = process.env.PORT || 8080
 
 const app = express();
@@ -17,26 +18,23 @@ app.get("/",(req,res)=>{
     res.send("Home")
 })
 
+const {Server} = require("socket.io")
+const http = require("http")
 
-const server=app.listen(PORT,async()=>{
-    try {
-        await DBConnection
-        console.log("Connected to DB")
-        console.log(`Server running at http://localhost:${PORT}`)
-    } catch (error) {
-        console.log(err);
-    }
-    
-})
-const io = require('socket.io')(server, {
-    cors: {
-        origin: ['http://127.0.0.1:5500'],
-        methods: ['GET', 'POST'],
-        credentials: true
-    },
-});
+const httpServer = http.createServer(app)
 
-app.use(express.static(path.join(__dirname, '../frontend/view/chatbox.html')));
+const io = new Server(httpServer)
+
+// const io = require('socket.io')(server, {
+//     cors: {
+//         origin: ['http://127.0.0.1:5500',"https://teamconnect-algorithm-whisperer.netlify.app/"],
+//         methods: ['GET', 'POST'],
+//         credentials: true
+//     },
+// });
+
+// const io = require('socket.io')(server)
+// app.use(express.static(path.join(__dirname, '../frontend/view/chatbox.html')));
 
 io.on('connection', onConnected);
 
@@ -134,3 +132,14 @@ function onConnected(socket) {
   });
 
 }
+
+httpServer.listen(PORT,async()=>{
+  try {
+      await DBConnection
+      console.log("Connected to DB")
+      console.log(`Server running at http://localhost:${PORT}`)
+  } catch (error) {
+      console.log(err);
+  }
+  
+})

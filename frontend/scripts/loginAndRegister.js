@@ -3,7 +3,7 @@ const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 const signUpButton_mobile = document.getElementById('signUp_mobile');
 const signInButton_mobile = document.getElementById('signIn_mobile');
-const backendURL = "http://localhost:8080"
+const backendURL = "https://teamconnect.onrender.com"
 
 signUpButton.addEventListener('click', () => {
 	container.classList.add("right-panel-active");
@@ -138,6 +138,7 @@ async function login(email,password){
             setTimeout(()=>{
                 
                 l_error.textContent = ""
+                window.location.href = "../view/chatbox.html"
             },3000)
         }
         else if(res.status == 404){

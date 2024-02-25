@@ -1,10 +1,13 @@
 // Socket.IO connection with user information
-const socket = io('http://localhost:8080', {
-    query: {
-        userId: localStorage.getItem('userName') // Use the user ID or any unique identifier
-    }
-});
+// const socket = io('https://teamconnect.onrender.com', {
+//     query: {
+//         userId: localStorage.getItem('userName') // Use the user ID or any unique identifier
+//     }
+// });
 
+const socket = io('https://teamconnect.onrender.com',{transports:["websocket"], query: {
+            userId: localStorage.getItem('userName') // Use the user ID or any unique identifier
+         }})
 
 // mesg-container
 
