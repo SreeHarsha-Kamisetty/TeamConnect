@@ -120,7 +120,7 @@ body {
 .header{
   position: relative;
   width: 100%;
-  height: 60px;
+  height: 50px;
 
   color: #8d5493;
   background:transparent;
@@ -276,17 +276,46 @@ body {
   justify-content: center;
   align-items: center;
 }
-.name {
-  width: 100%;
+.header .name{
+  width: inherit;
+  height: inherit;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 32px;
   font-weight: 700;
-  /* padding: 8px 16px; */
+  padding: 8px 16px;
   color: #7e7e7e;
   background-color: #ebebeb;
-  /* margin-bottom: 2%; */
 }
 
+.info {
+  display: flex;
+  align-items: center;
+}
+
+#img-span {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.more {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  gap: 15%;
+  justify-content: flex-end;
+  margin-right: 0%;
+}
+.more a{
+  text-decoration: none;
+  
+}
+.more .logo{
+  background-color: red;
+  margin-left: 10px;
+  color: #777777; /* Adjust the margin as needed */
+}
 .name span {
   padding-top: 2%;
   color: #bbb;
@@ -313,6 +342,7 @@ body {
   background-color: #ebebeb;
   width: 100%;
   height: 85%;
+  overflow: auto;
 }
 
 .mesg-left,
@@ -361,30 +391,39 @@ body {
   justify-content: space-between;
   width: 100%;
 }
-
+.mesg-form .fa-paperclip{
+  /* margin-top: 15px; */
+  padding: 15px;
+  
+  border-radius: 50%;
+  font-size: 1.25em;
+}
 .mesg-input {
   /* flex-grow: 1; */
   width: 100%;
-  height: 48px;
+  height: 10px;
   font-size: 16px;
   border: none;
   outline: none;
-  padding: 0 12px;
+  padding: 20px 20px;
   background-color: #fff;
+  border-radius: 10px;
 }
 
 .send-btn {
-  height: 48px;
+  height: 40px;
   font-size: 16px;
   border: none;
-  padding: 0 20px;
+  padding: 0px 20px;
   outline: none;
   background-color: #fff;
   cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .v-divider {
-  height: 40px;
+  height: 30px;
   width: 2px;
   background-color: #f6f6f6;
 }

@@ -196,7 +196,7 @@ async function loadImage(id){
     }
   
 }
-loadImage(id);
+// loadImage(id);
 
 
 // logout fuctionalities
@@ -224,3 +224,6 @@ const logout = async () => {
   };
   // Example button click event
 document.getElementById("logout-btn").addEventListener("click", logout);
+
+
+// video call js
