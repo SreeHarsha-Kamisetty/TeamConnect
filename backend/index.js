@@ -29,14 +29,15 @@ const server=app.listen(PORT,async()=>{
     }
     
 })
-const io = require('socket.io')(server, {
-    cors: {
-        origin: ['http://127.0.0.1:5500',"https://teamconnect-algorithm-whisperer.netlify.app/"],
-        methods: ['GET', 'POST'],
-        credentials: true
-    },
-});
+// const io = require('socket.io')(server, {
+//     cors: {
+//         origin: ['http://127.0.0.1:5500',"https://teamconnect-algorithm-whisperer.netlify.app/"],
+//         methods: ['GET', 'POST'],
+//         credentials: true
+//     },
+// });
 
+const io = require('socket.io')(server)
 app.use(express.static(path.join(__dirname, '../frontend/view/chatbox.html')));
 
 io.on('connection', onConnected);
