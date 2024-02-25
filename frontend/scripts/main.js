@@ -263,6 +263,8 @@ async function uploadAttachment(){
         })
         let new_data = await res.json();
         console.log(new_data)
+        // <embed src="your-pdf-file.pdf" type="application/pdf" width="100%" height="600px" />
+
     } catch (error) {
         
     }
