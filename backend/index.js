@@ -4,6 +4,7 @@ const cors = require("cors")
 const morgan = require("morgan");
 const { DBConnection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
+const { WorkspaceRouter } = require("./routes/workspace.routes");
 require('dotenv').config();
 const PORT = process.env.PORT || 8080
 
@@ -13,13 +14,14 @@ app.use(cors())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 app.use("/users",UserRouter)
-
+app.use("/workspace",WorkspaceRouter)
 app.get("/",(req,res)=>{
     res.send("Home")
 })
 
 const {Server} = require("socket.io")
-const http = require("http")
+const http = require("http");
+
 
 const httpServer = http.createServer(app)
 
