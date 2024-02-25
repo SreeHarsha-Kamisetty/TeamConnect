@@ -130,6 +130,7 @@ async function login(email,password){
         localStorage.setItem("userName",data.user.userName)
         localStorage.setItem("userId",data.user._id)
         localStorage.setItem("userImage",data.user.image)
+        localStorage.setItem("userEmail",data.user.email)
 
         if(res.status == 200){
             l_error.setAttribute("style","color:green;")
