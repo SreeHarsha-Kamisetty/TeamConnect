@@ -4,6 +4,7 @@ const cors = require("cors")
 const morgan = require("morgan");
 const { DBConnection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
+require('dotenv').config();
 const PORT = process.env.PORT || 8080
 
 const app = express();
@@ -30,7 +31,7 @@ const server=app.listen(PORT,async()=>{
 })
 const io = require('socket.io')(server, {
     cors: {
-        origin: ['http://127.0.0.1:5500'],
+        origin: ['http://127.0.0.1:5500',"https://teamconnect-algorithm-whisperer.netlify.app/"],
         methods: ['GET', 'POST'],
         credentials: true
     },

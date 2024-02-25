@@ -1,5 +1,5 @@
 // Socket.IO connection with user information
-const socket = io('http://localhost:8080', {
+const socket = io('https://teamconnect.onrender.com', {
     query: {
         userId: localStorage.getItem('userName') // Use the user ID or any unique identifier
     }
