@@ -7,7 +7,7 @@
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: #01141f;
+  /* background-color: #01141f; */
   color: white;
 }
 #container1 {
@@ -17,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 30px 8%;
-  background-color: #01141f;
+  /* background-color: #01141f; */
 }
 #container1 .row {
   display: flex;
@@ -40,7 +40,7 @@ body {
 section.left .contactTitle h2 {
   position: relative;
   font-size: 28px;
-  color: #ddd;
+  color: rgb(2, 120, 67);
   display: inline-block;
   margin-bottom: 25px;
 }
@@ -58,13 +58,14 @@ section.left .contactTitle h2::after {
   position: absolute;
   width: 25%;
   height: 3px;
-  background-color: dodgerblue;
+  background-color: rgb(3, 87, 62);
   top: calc(120% - 1px);
   left: 0;
 }
 section.left .contactTitle p {
   font-size: 17px;
-  color: #ccc;
+  /* color: #ccc; */
+  color: black;
   letter-spacing: 1px;
   line-height: 1.2;
   padding-bottom: 22px;
@@ -87,7 +88,8 @@ section.left .contactInfo {
 }
 .iconGroup .icon i {
   font-size: 20px;
-  color: #ddd;
+  /* color: #ddd; */
+  color: rgb(116, 3, 116);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -95,12 +97,14 @@ section.left .contactInfo {
 }
 .iconGroup .details span {
   display: block;
-  color: #888;
+  /* color: #888; */
+  color: black;
   font-size: 18px;
 }
 .iconGroup .details span:nth-child(1) {
   text-transform: uppercase;
-  color: #ccc;
+  color: rgb(233, 41, 73);
+  /* color: #ccc; */
 }
 section.left .socialMedia {
   display: flex;
@@ -116,11 +120,13 @@ section.left .socialMedia {
   text-align: center;
   margin-right: 15px;
   border-radius: 5px;
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
+  background-color: whitesmoke;
   transition: 0.4s;
 }
 .socialMedia a i {
-  color: #ddd;
+  /* color: #ddd; */
+  color: purple;
   font-size: 18px;
   line-height: 35px;
   border: 1px solid transparent;
@@ -128,7 +134,7 @@ section.left .socialMedia {
 }
 .socialMedia a:hover {
   transform: translateY(-5px);
-  background-color: #01141f;
+  /* background-color: #01141f; */
   color: dodgerblue;
   border: 1px solid dodgerblue;
 }
@@ -159,7 +165,7 @@ section.left .socialMedia {
   width: 100%;
   font-size: 18px;
   padding: 2px 0px;
-  background-color: #01141f;
+  /* background-color: #01141f; */
   color: #ddd;
   border: none;
   border-bottom: 2px solid #666;
@@ -204,7 +210,7 @@ textarea::-webkit-scrollbar-thumb {
   padding: 8px 16px;
   font-size: 18px;
   background-color: dodgerblue;
-  color: #ddd;
+  color: black;
   border: 1px solid transparent;
   border-radius: 25px;
   outline: none;
