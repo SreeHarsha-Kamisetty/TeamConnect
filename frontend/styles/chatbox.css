@@ -185,6 +185,18 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.mesg_p b{
+  background: #7e7e7e;
+  color: #fff;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .name {
   display: flex;
   font-size: 32px;

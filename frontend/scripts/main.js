@@ -91,11 +91,11 @@ function scrollToBottom(){
 }
 
 // total clients logic
-const clients_total=document.getElementById('clients-total')
+// const clients_total=document.getElementById('clients-total')
 
-socket.on('clients-total',(data)=>{
-    clients_total.innerText=`Total Clients : ${data}`
-})
+// socket.on('clients-total',(data)=>{
+//     clients_total.innerText=`Total Clients : ${data}`
+// })
 
 // Emit user is typing feedback when input is focused or key is pressed
 mesgInput.addEventListener('focus', () => {

@@ -66,7 +66,7 @@ function onConnected(socket) {
     socket.on('disconnect', () => {
         console.log('Socket disconnected', socket.id);
         socketsConnected.delete(socket.id);
-        io.emit('clients-total', socketsConnected.size);
+        // io.emit('clients-total', socketsConnected.size);
     });
 
     socket.on('message', (data) => {
