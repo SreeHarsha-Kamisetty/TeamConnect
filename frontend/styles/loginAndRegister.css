@@ -9,7 +9,7 @@
 
 body {
 	/*background: #f6f5f7; */
-    background: url("https://static.vecteezy.com/system/resources/previews/002/188/833/non_2x/chat-wallpaper-social-media-message-background-copy-space-for-a-text-vector.jpg") ;
+    background: #8d5493;
 	background-repeat: round;
     background-size: auto;
     display: flex;
@@ -52,8 +52,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #387ADF;
-	background-color: #387ADF;
+	border: 1px solid #7E3585;
+	background-color: #7E3585;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -170,8 +170,8 @@ input {
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right,  #387ADF, #387ADF);
-	background: linear-gradient(to right,#387ADF, #387ADF);
+	background: -webkit-linear-gradient(to right,  #7E3585, #7E3585);
+	background: linear-gradient(to right,#7E3585, #7E3585);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -236,7 +236,7 @@ input {
 }
 
 .social:hover{
-	background-color: #387ADF;
+	background-color: #7E3585;
 	color: #fff;
 }
 
@@ -305,7 +305,7 @@ footer a {
 	.ghost_mobile{
 		display:block;
 		font-size: 0.8rem;
-		background-image: linear-gradient(180deg,#1293ba,#387ADF);
+		background-image: linear-gradient(180deg,#1293ba,#7E3585);
 
 	}
 
