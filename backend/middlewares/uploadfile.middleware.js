@@ -20,7 +20,7 @@ const uploadfile = async (req, res, next) => {
         // Handle multer error
         return res.status(400).send({ error:"Error when uploading file" });
       }
-  
+      req.uploadedFileName = req.file.fileRef.metadata.name
       req.downloadLink = req.file.fileRef.metadata.mediaLink;
       req.publicURL = req.file.publicUrl;
   
