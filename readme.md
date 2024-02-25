@@ -3,15 +3,16 @@
 
 TeamConnect is a powerful team collaboration platform that allows you to communicate and collaborate with your team members in real-time. Whether you're working remotely or in the same office, our application provides a seamless and efficient way to stay connected.
 
+### Explore our plateform
+  - <a href="https://teamconnect-algorithm-whisperer.netlify.app/">Live Link</a>
 
-![Screenshot 2024-02-25 101300](https://github.com/SreeHarsha-Kamisetty/TeamConnect/assets/102248292/a4fff7f8-f07a-42d0-ab56-65bf28ac5e60)
 
 ## Project Type 
 Fullstack
 
 ## Deployed App
-- Frontend : [Link]
-- Backend : [link]
+- Frontend : <a href="https://teamconnect-algorithm-whisperer.netlify.app/">Link</a>
+- Backend : <a href="https://teamconnect.onrender.com/">Link</a>
 - Database : [link]
 
 ## Features
@@ -26,9 +27,12 @@ Fullstack
 ## Usage
 ### User Registration
 - Visit the application's URL.
-- Click on the "Sign Up" or "Register" button to create a new user account.
-- Fill out the registration form with your details.
+- Click on the "Sign Up" button to create a new user account.
+- Fill out the registration form .
 - Once registered, you can log in with your credentials.
+
+![Screenshot 2024-02-25 101300](https://github.com/SreeHarsha-Kamisetty/TeamConnect/assets/102248292/a4fff7f8-f07a-42d0-ab56-65bf28ac5e60)
+
 
 ### Sending Messages
 - To send a message in a channel, click on the user's name in the left sidebar.
@@ -54,4 +58,15 @@ Fullstack
 - **Express**
 - **MongoDB**
 
+## Contribution Guidelines
+
+We welcome contributions from the community! If you'd like to contribute to TeamConnect, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/new-feature`.
+3. Make your changes and commit them: `git commit -m 'Add new feature'`.
+4. Push to the branch: `git push origin feature/new-feature`.
+5. Submit a pull request.
+
+Please ensure your code adheres to our coding standards and includes tests when applicable.
 
