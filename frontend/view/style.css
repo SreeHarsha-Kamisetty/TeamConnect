@@ -57,7 +57,9 @@ body {
   position: relative;
   width: 100%;
   height: 60px;
-  background: #8d5493;
+
+  color: #8d5493;
+  background:transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,7 +72,7 @@ body {
   overflow: hidden;
   border-radius: 50%;
   cursor: pointer;
-  
+
 }
 
 .name {
