@@ -1,4 +1,4 @@
-const baseurl = "http://localhost:8080";
+const baseurl = "https://teamconnect.onrender.com";
 const socket = io(baseurl, {
   transports: ["websocket"],
   auth: {

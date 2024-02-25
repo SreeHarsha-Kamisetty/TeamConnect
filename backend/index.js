@@ -31,7 +31,7 @@ const server=app.listen(PORT,async()=>{
 })
 const io = require('socket.io')(server, {
     cors: {
-        origin: ['http://127.0.0.1:5500'],
+        origin: ['http://127.0.0.1:5500',"https://teamconnect-algorithm-whisperer.netlify.app/"],
         methods: ['GET', 'POST'],
         credentials: true
     },
