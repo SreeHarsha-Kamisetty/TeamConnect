@@ -70,21 +70,26 @@ Fullstack
 
 ## Installation & Getting Started
 1. Clone the repository:
-`git clone https://github.com/SreeHarsha-Kamisetty/TeamConnect.git `
-2. Navigate to the project directory:
-`cd your-project`
-3. Install dependencies:
-`npm install`
-4. Configure environment variables:
+   ```bash
+    git clone https://github.com/SreeHarsha-Kamisetty/TeamConnect.git 
+3. Navigate to the project directory:
+    ```bash
+     cd your-project
+5. Install dependencies:
+   ```bash
+    npm install
+6. Configure environment variables:
       - Create a .env file in the backend directory.<br>
       - Add necessary environment variables such as database connection URI, JWT secret key, etc.
-5. Start the backend server:
-  `cd backend`
-  `npm start`
-6. Start the frontend application:
-  `cd frontend`
-  `npm start`
-7. Access the application at `http://localhost:3000`.
+7. Start the backend server:
+    ```bash
+    cd backend
+    npm start
+9. Start the frontend application:
+     ```bash
+     cd frontend
+     npm start
+11. Access the application at `http://localhost:3000`.
 
 
 ## Usage
