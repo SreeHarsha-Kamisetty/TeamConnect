@@ -22,6 +22,29 @@ Fullstack
 - File and media sharing
 - Video Calling
 
+
+## Usage
+### User Registration
+- Visit the application's URL.
+- Click on the "Sign Up" or "Register" button to create a new user account.
+- Fill out the registration form with your details.
+- Once registered, you can log in with your credentials.
+
+### Sending Messages
+- To send a message in a channel, click on the user's name in the left sidebar.
+- Type your message in the input field at the bottom of the chat window and press Enter to send.
+- You can also send direct messages to other users by clicking on their name in the user list.
+
+### File and Media Sharing
+- To share files or media, click on the file/media sharing icon within the messaging interface.
+- Select the file or media you want to share from your device and click "Send."
+- Other users in the conversation will be able to view/download the shared files or media.
+
+### Video Calling
+- To initiate a video call, go to the user's profile or existing conversation.
+- Click on the "Video Call" button to start a video call with the selected user(s).
+- Ensure that your device has a camera and microphone enabled for video and audio communication.
+  
 ## Tech Stack
 
 - **HTML**
