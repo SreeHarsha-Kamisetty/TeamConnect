@@ -61,6 +61,31 @@ Fullstack
 - File and media sharing
 - Video Calling
 
+## Design Decisions or Assumptions
+
+- **Real-time Messaging:** Implemented using WebSocket technology for instant message delivery and updates.
+- **User Authentication:** Utilized JWT (JSON Web Tokens) for secure user authentication and authorization.
+- **Database Schema:** Designed MongoDB schema with collections for users, messages, and other relevant data.
+- **Scalability:** Chose a microservices architecture for the backend to ensure scalability and modularity.
+
+## Installation & Getting Started
+1. Clone the repository:
+`git clone https://github.com/SreeHarsha-Kamisetty/TeamConnect.git `
+2. Navigate to the project directory:
+`cd your-project`
+3. Install dependencies:
+`npm install`
+4. Configure environment variables:
+  - Create a .env file in the backend directory.
+  - Add necessary environment variables such as database connection URI, JWT secret key, etc.
+5. Start the backend server:
+  `cd backend`
+  `npm start`
+6. Start the frontend application:
+  `cd frontend`
+  `npm start`
+7. Access the application in your browser
+
 
 ## Usage
 ### User Registration
