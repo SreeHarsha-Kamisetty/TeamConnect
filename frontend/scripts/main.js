@@ -145,12 +145,12 @@ socket.on('chat message', (msg) => {
 });
 
 // Send chat message
-$('form').submit(function(e) {
-  e.preventDefault();
-  const msg = $('#msg-input').val();
-  if (msg) {
-    socket.emit('chat message', msg);
-    $('#msg-input').val('');
-  }
-  return false;
-});
+// $('form').submit(function(e) {
+//   e.preventDefault();
+//   const msg = $('#msg-input').val();
+//   if (msg) {
+//     socket.emit('chat message', msg);
+//     $('#msg-input').val('');
+//   }
+//   return false;
+// });
