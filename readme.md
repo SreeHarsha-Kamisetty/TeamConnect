@@ -15,6 +15,44 @@ Fullstack
 - Backend : <a href="https://teamconnect.onrender.com/">Link</a>
 - Database : [link]
 
+## Directory Structure
+TeamConnect/
+├─ backend/
+│  ├─ middlewares/
+│  │  ├─ auth.middlewarer.js
+│  │  ├─ uploadfile.middle.js
+│  ├─ models/
+│  │  ├─ user.model.js
+│  │  ├─ workspace.model.js
+│  ├─ routes/
+│  │  ├─ message.routes.js
+│  │  ├─ user.routes.js
+│  │  └─ workspace.routes.js
+│  ├─ db.js
+│  ├─ index.js
+├─ frontend/
+│  ├─ assets
+│  ├─ images
+│  ├─ scripts/
+│  │  ├─ loginAndRegister.js
+│  │  ├─ main.js
+│  │  ├─ videopagescript.js
+│  ├─ styles/
+│  │  ├─ chatbox.css
+│  │  ├─ contact.css
+│  │  ├─ contactfooter.css
+│  │  ├─ loginAndRegister.css
+│  │  ├─ popup.css
+│  │  ├─ style.css
+│  │  ├─ svideopagestyle.css
+│  ├─ view/
+│  │  ├─ chatbox.html
+│  │  ├─ contact.html
+│  │  ├─ loginAndRegister.html
+│  │  ├─ videopage.html
+│  ├─ index.html
+
+
 ## Features
 - Real-time Messaging
 - Direct messaging between users
@@ -68,5 +106,7 @@ We welcome contributions from the community! If you'd like to contribute to Team
 4. Push to the branch: `git push origin feature/new-feature`.
 5. Submit a pull request.
 
-Please ensure your code adheres to our coding standards and includes tests when applicable.
 
+## License
+
+This app is licensed under the [MIT License](LICENSE).
