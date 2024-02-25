@@ -9,15 +9,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="title">TeamConnect</h1>
-    <section>
-    <div class="left-column">hxskk</div>
+    <!-- <h1 class="title">TeamConnect</h1> -->
+    <section class="container">
+    <div class="left-column">
+        <div class="header">
+            <div class="channel-name">
+            </div>
+             <ul class="nav-icons">
+                <li><span class="iconify logo" data-icon="openmoji:hamburger-menu" data-inline="true" data-width="50px" data-height="50px"></span></li>
+                <li><span class="iconify logo" data-icon="bx:edit" data-inline="true" data-width="50px" data-height="50px"></span></li>
+             </ul>
+        </div>
+    </div>
     <div class="main">
         <div class="name">
            <span id="img-span"><i class="far fa-user"></i></span>
            <span id="name-input"></span>
-    </div>
-    <ul class="mesg-container" id="mesg-container">
+        </div>
+        <ul class="mesg-container" id="mesg-container">
         <!-- <li class="mesg-left">
             <p class="mesg">Lorem <span>bluebird . 26 july 10:40</span>
             </p>
@@ -31,8 +40,8 @@
                killer is typing a message
             </p>
         </li> -->
-    </ul>
-    <form  class="mesg-form" id="mesg-form">
+        </ul>
+        <form  class="mesg-form" id="mesg-form">
         <input type="text" name="mesg" id="mesg-input" class=" mesg-input">
         <div class="v-divider">
            
@@ -40,11 +49,11 @@
         <button type="submit" id="send-btn" class="send-btn">
             send <span><i class="fas fa-paper-plane"></i></span>
         </button>
-    </form>
+        </form>
    
-</div>
+    </div>
 </section>
-<h3 class="clients-total" id="clients-total">Total Clients : </h3>
+<!-- <h3 class="clients-total" id="clients-total">Total Clients : </h3> -->
 
 <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
 
@@ -52,6 +61,6 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js" integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js" integrity="sha512-lYMiwcB608+RcqJmP93CMe7b4i9G9QK1RbixsNu4PzMRJMsqr/bUrkXUuFzCNsRUo3IXNUr5hz98lINURv5CNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
