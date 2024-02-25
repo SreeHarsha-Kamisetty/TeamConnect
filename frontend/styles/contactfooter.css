@@ -22,16 +22,18 @@
 
 /* Footer */
 .footer {
-  background: black;
-  color: #969595;
+  background: rgb(248, 233, 248);
+  color: black;
   font-size: 18px;
-  padding: 60px 0 20px;
+  padding: 60px 40px 20px;
 }
 .footer p {
-  color: #8a8a8a;
+  /* color: #8a8a8a; */
+  color: black;
 }
 .footer h3 {
-  color: #fff;
+  /* color: #fff; */
+  color: teal;
   margin-bottom: 20px;
 }
 .footer-col-1,
@@ -72,7 +74,7 @@ ul {
 }
 .footer hr {
   border: none;
-  background: #b5b5b5;
+  background: black;
   height: 1px;
   margin: 20px 0;
 }
