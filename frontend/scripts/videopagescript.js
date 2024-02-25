@@ -215,6 +215,8 @@ leaveRoomButton.addEventListener("click", function () {
     rtcPeerConnection.onicecandidate = null;
     rtcPeerConnection.close();
   }
+
+  location.href = "../view/contact.html"
 });
 
 socket.on("leave", function () {
