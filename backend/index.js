@@ -4,6 +4,7 @@ const cors = require("cors")
 const morgan = require("morgan");
 const { DBConnection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
+require('dotenv').config();
 const PORT = process.env.PORT || 8080
 
 const app = express();
