@@ -16,41 +16,41 @@ Fullstack
 - Database : [link]
 
 ## Directory Structure
-TeamConnect/
-├─ backend/
-│  ├─ middlewares/
-│  │  ├─ auth.middlewarer.js
-│  │  ├─ uploadfile.middle.js
-│  ├─ models/
-│  │  ├─ user.model.js
-│  │  ├─ workspace.model.js
-│  ├─ routes/
-│  │  ├─ message.routes.js
-│  │  ├─ user.routes.js
-│  │  └─ workspace.routes.js
-│  ├─ db.js
-│  ├─ index.js
-├─ frontend/
-│  ├─ assets
-│  ├─ images
-│  ├─ scripts/
-│  │  ├─ loginAndRegister.js
-│  │  ├─ main.js
-│  │  ├─ videopagescript.js
-│  ├─ styles/
-│  │  ├─ chatbox.css
-│  │  ├─ contact.css
-│  │  ├─ contactfooter.css
-│  │  ├─ loginAndRegister.css
-│  │  ├─ popup.css
-│  │  ├─ style.css
-│  │  ├─ svideopagestyle.css
-│  ├─ view/
-│  │  ├─ chatbox.html
-│  │  ├─ contact.html
-│  │  ├─ loginAndRegister.html
-│  │  ├─ videopage.html
-│  ├─ index.html
+- TeamConnect/
+- ├─ backend/
+- │  ├─ middlewares/
+- │  │  ├─ auth.middlewarer.js
+- │  │  ├─ uploadfile.middle.js
+- │  ├─ models/
+- │  │  ├─ user.model.js
+- │  │  ├─ workspace.model.js
+- │  ├─ routes/
+- │  │  ├─ message.routes.js
+- │  │  ├─ user.routes.js
+- │  │  └─ workspace.routes.js
+- │  ├─ db.js
+- │  ├─ index.js
+- ├─ frontend/
+- │  ├─ assets
+- │  ├─ images
+- │  ├─ scripts/
+- │  │  ├─ loginAndRegister.js
+- │  │  ├─ main.js
+- │  │  ├─ videopagescript.js
+- │  ├─ styles/
+- │  │  ├─ chatbox.css
+- │  │  ├─ contact.css
+- │  │  ├─ contactfooter.css
+- │  │  ├─ loginAndRegister.css
+- │  │  ├─ popup.css
+- │  │  ├─ style.css
+- │  │  ├─ svideopagestyle.css
+- │  ├─ view/
+- │  │  ├─ chatbox.html
+- │  │  ├─ contact.html
+- │  │  ├─ loginAndRegister.html
+- │  │  ├─ videopage.html
+- │  ├─ index.html
 
 
 ## Features
