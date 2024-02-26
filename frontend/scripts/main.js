@@ -56,7 +56,9 @@ socket.on("chat-group-mesg", (data) => {
   addMessagetoUI(false, data);
 });
 
-socket.on("file upload message", (msg) => {
+socket.on("file upload message", (data) => {
+  let { fileName, publicURL, downloadLink } = data;
+  let msg = `<embed src=${publicURL} class="mesg-left" type="application/pdf" width="auto" height="auto" /> `;
   mesg_container.innerHTML += `\n${msg}`;
 });
 
@@ -264,9 +266,9 @@ async function uploadAttachment() {
     let new_data = await res.json();
     const { fileName, publicURL, downloadLink } = new_data;
 
-    let msg = `<embed src=${publicURL} type="application/pdf" width="100%" height="600px" /> `;
+    let msg = `<embed src=${publicURL} class="mesg-right" type="application/pdf" width="auto" height="auto" /> `;
     mesg_container.innerHTML += `\n${msg}`;
-    socket.emit("file upload", msg);
+    socket.emit("file upload", { fileName, publicURL, downloadLink });
   } catch (error) {
     console.log(error);
   }
