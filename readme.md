@@ -128,6 +128,7 @@ https://github.com/SreeHarsha-Kamisetty/TeamConnect/assets/102248292/d3babd88-62
 - **Node.js**
 - **Express**
 - **MongoDB**
+- **Socket.io**
 
 ## Contribution Guidelines
 
