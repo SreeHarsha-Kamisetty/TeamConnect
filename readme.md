@@ -52,6 +52,9 @@ Fullstack
 - │  │  ├─ videopage.html
 - │  ├─ index.html
 
+## Video Walkthrough of the project
+https://github.com/SreeHarsha-Kamisetty/TeamConnect/assets/102248292/d3babd88-62c0-4ec6-b00c-d8af6b179c4d
+
 
 ## Features
 - Real-time Messaging
