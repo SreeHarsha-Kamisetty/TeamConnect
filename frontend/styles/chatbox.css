@@ -130,6 +130,10 @@ body {
   /* padding: 5px 10px; */
   border-bottom:3px solid #846586 ;
 }
+.channel-name h3{
+  color: #fff;
+  padding: 10px 10px;
+}
 .userimg{
   position: relative;
   width: 30px;
@@ -295,7 +299,8 @@ body {
 }
 
 #img-span {
-  margin-right: 10px; /* Adjust the margin as needed */
+  margin-right: 10px;
+  margin-bottom: 10px; /* Adjust the margin as needed */
 }
 
 .more {
@@ -325,6 +330,7 @@ body {
   margin-left: 90%;
 }
 #name-input {
+  width: 40%;
   font-size: 24px;
   font-weight: 700;
   color: #7e7e7e;
