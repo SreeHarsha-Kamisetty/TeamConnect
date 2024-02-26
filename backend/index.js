@@ -1,34 +1,34 @@
-const express = require("express")
-const path = require('path');
-const cors = require("cors")
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
 const morgan = require("morgan");
 const { DBConnection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
 const { WorkspaceRouter } = require("./routes/workspace.routes");
 const { MessageRouter } = require("./routes/message.routes");
-require('dotenv').config();
-const PORT = process.env.PORT || 8080
+require("dotenv").config();
+const PORT = process.env.PORT || 8080;
 
 const app = express();
-app.use(express.json())
-app.use(cors())
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+app.use(express.json());
+app.use(cors());
+app.use(
+  morgan(":method :url :status :res[content-length] - :response-time ms")
+);
 
-app.use("/users",UserRouter)
-app.use("/workspace",WorkspaceRouter)
-app.use("/messages",MessageRouter)
-app.get("/",(req,res)=>{
-    res.send("Home")
-})
+app.use("/users", UserRouter);
+app.use("/workspace", WorkspaceRouter);
+app.use("/messages", MessageRouter);
+app.get("/", (req, res) => {
+  res.send("Home");
+});
 
-const {Server} = require("socket.io")
+const { Server } = require("socket.io");
 const http = require("http");
 
+const httpServer = http.createServer(app);
 
-
-const httpServer = http.createServer(app)
-
-const io = new Server(httpServer)
+const io = new Server(httpServer);
 
 // const io = require('socket.io')(server, {
 //     cors: {
@@ -38,51 +38,51 @@ const io = new Server(httpServer)
 //     },
 // });
 
-// const io = require('socket.io')(server)
-// app.use(express.static(path.join(__dirname, '../frontend/view/chatbox.html')));
-
-io.on('connection', onConnected);
+io.on("connection", onConnected);
 
 let socketsConnected = new Set();
 
 function onConnected(socket) {
-    console.log(socket.id);
-    socketsConnected.add(socket.id);
+  console.log(socket.id);
+  socketsConnected.add(socket.id);
 
-    io.emit('clients-total', socketsConnected.size);
+  io.emit("clients-total", socketsConnected.size);
 
-    socket.on('join room', (room) => {
-        socket.join(room);
-        console.log(`User joined room: ${room}`);
-    
-        // Listen for chat messages in the specific room
-        socket.on('chat message', (msg) => {
-          io.to(room).emit('chat message', msg); // Broadcast the message to all users in the room
-        });
-    
-        // Handle disconnection
-        socket.on('disconnect', () => {
-          console.log('User disconnected');
-        });
-      });
-    socket.on('disconnect', () => {
-        console.log('Socket disconnected', socket.id);
-        socketsConnected.delete(socket.id);
-        // io.emit('clients-total', socketsConnected.size);
+  socket.on("join room", (room) => {
+    socket.join(room);
+    console.log(`User joined room: ${room}`);
+
+    // Listen for chat messages in the specific room
+    socket.on("chat message", (msg) => {
+      io.to(room).emit("chat message", msg); // Broadcast the message to all users in the room
     });
 
-    socket.on('message', (data) => {
-        console.log(data);
-        socket.broadcast.emit('chat-group-mesg', data);
+    // Handle disconnection
+    socket.on("disconnect", () => {
+      console.log("User disconnected");
     });
+  });
+  socket.on("disconnect", () => {
+    console.log("Socket disconnected", socket.id);
+    socketsConnected.delete(socket.id);
+    // io.emit('clients-total', socketsConnected.size);
+  });
 
-    socket.on('feedback', (data) => {
-        socket.broadcast.emit('feedback', data);
-    });
+  socket.on("message", (data) => {
+    console.log(data);
+    socket.broadcast.emit("chat-group-mesg", data);
+  });
 
+  socket.on("feedback", (data) => {
+    socket.broadcast.emit("feedback", data);
+  });
 
-    ////<---------------------------- webRTC code------------------->
-    
+  socket.on("file upload", (data) => {
+    socket.broadcast.emit("file upload message", data);
+  });
+
+  ////<---------------------------- webRTC code------------------->
+
   socket.on("join", function (roomname) {
     var rooms = io.sockets.adapter.rooms; //create default room.
 
@@ -135,16 +135,15 @@ function onConnected(socket) {
     socket.leave(roomName);
     socket.broadcast.to(roomName).emit("leave");
   });
-
 }
 
-httpServer.listen(PORT,async()=>{
+//server listening
+httpServer.listen(PORT, async () => {
   try {
-      await DBConnection
-      console.log("Connected to DB")
-      console.log(`Server running at http://localhost:${PORT}`)
+    await DBConnection;
+    console.log("Connected to DB");
+    console.log(`Server running at http://localhost:${PORT}`);
   } catch (error) {
-      console.log(err);
+    console.log(err);
   }
-  
-})
+});
