@@ -90,6 +90,41 @@ UserRouter.patch("/update/image/:userID",uploadfile,async(req,res)=>{
     }
 })
 
+UserRouter.patch("/update/details/:userID",async(req,res)=>{
+    try {
+        let {userID} = req.params
+        let user = await UserModel.findOne({_id:userID})
+        
+        if(!user) return res.status(404).json({Error:"User not found"})
+
+        await UserModel.findByIdAndUpdate({_id:userID},req.body)
+        res.status(200).json({Message:"Profile details updated"})
+
+    } catch (error) {
+        res.status(400).json({Error:"Error while updating user details"})
+    }
+})
+
+UserRouter.get("/:userID",async(req,res)=>{
+    try {
+        let {userID} = req.params
+        let user = await UserModel.findOne({_id:userID})
+        
+        if(!user) return res.status(404).json({Error:"User not found"})
+
+        let user_info = {
+            userName:user.userName,
+            userImage:user.image,
+            userId:user._id,
+            userEmail:user.email,
+            userMobile:user.mobile ? user.mobile : "",
+            userAge: user.age ? user.age : ""
+        }
+    } catch (error) {
+        res.status(400).json({Error: "error while getting user details"})
+    }
+})
+
 module.exports={
     UserRouter
 }
