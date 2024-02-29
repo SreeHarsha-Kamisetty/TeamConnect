@@ -120,6 +120,7 @@ UserRouter.get("/:userID",async(req,res)=>{
             userMobile:user.mobile ? user.mobile : "",
             userAge: user.age ? user.age : ""
         }
+        res.status(200).json({user_info})
     } catch (error) {
         res.status(400).json({Error: "error while getting user details"})
     }
