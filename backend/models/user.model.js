@@ -21,7 +21,9 @@ const userSchema = mongoose.Schema({
         id:String,
         workspacename:String
     }
-  ]
+  ],
+  mobile:Number,
+  age:Number
 },{versionKey:false});
 
 const UserModel = mongoose.model("user",userSchema)
