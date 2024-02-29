@@ -20,6 +20,8 @@ let user_email = document.getElementById("user-email");
 let user_name = document.getElementById("user-name");
 let user_email_2 = document.getElementById("user-email-2");
 let user_name_2 = document.getElementById("user-name-2");
+let userAge = document.getElementById("user-age-2")
+let userMobile = document.getElementById("user-mobile")
 if (img) {
   imgSpan.innerHTML = "";
   imgSpan.innerHTML = `<img id="img-tag" src=${img}>`;
@@ -29,6 +31,28 @@ if (img) {
   user_email_2.value = localStorage.getItem("userEmail");
   user_name_2.value = localStorage.getItem("userName");
 }
+
+// load user details
+async function loadUserDetails(){
+  try {
+    console.log("test")
+    let res = await fetch(`${backendURL}users/${localStorage.getItem("userId")}`)
+    let user_data = await res.json();
+    user_data = user_data.user_info
+    user_email.innerText = user_data.userEmail
+    user_name.innerText = user_data.userName
+    test_img.src = user_data.userImage
+    user_email_2.value = user_data.userEmail
+    user_name_2.value = user_data.userName
+    userAge.value =  user_data.userAge
+    userMobile.value = user_data.userMobile
+    console.log(user_data);
+  } catch (error) {
+    console.log(error)
+  }
+}
+loadUserDetails();
+
 
 mesg_form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -198,22 +222,7 @@ upload_img_form.addEventListener("submit", (e) => {
   profile.show();
 });
 
-// load image on page load
-async function loadImage(id) {
-  try {
-    let res = await fetch(`https://coinsquare.onrender.com/user/profile/${id}`);
-    let data = await res.json();
-    console.log(data);
-    let profile = data.image;
-    let test_img = document.getElementById("test-img");
-    test_img.src = profile;
-    let profile_pic = document.getElementById("profile-pic");
-    profile_pic.src = profile;
-  } catch (error) {
-    console.log(error);
-  }
-}
-// loadImage(id);
+
 
 // logout fuctionalities
 const logout = async () => {
@@ -277,3 +286,33 @@ async function uploadAttachment() {
     console.log(error);
   }
 }
+
+
+// update user details
+async function updateUserDetails(){
+  try {
+      let res = await fetch(`${backendURL}users/update/details/${localStorage.getItem("userId")}`,{
+        method:"PATCH",
+        headers:{
+          "Content-type":"application/json"
+        },
+        body:JSON.stringify({
+          userName:user_name_2.value,
+          email:user_email_2.value,
+          mobile:userMobile.value,
+          age:userAge.value
+        })
+      })
+      let data = await res.json();
+      console.log(data)
+      loadUserDetails();
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+let user_details_updateBtn = document.getElementById("prof-chg-submit")
+
+user_details_updateBtn.addEventListener("click",updateUserDetails);
+
