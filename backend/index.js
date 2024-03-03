@@ -6,6 +6,7 @@ const { DBConnection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
 const { WorkspaceRouter } = require("./routes/workspace.routes");
 const { MessageRouter } = require("./routes/message.routes");
+const {router}=require("./routes/conversation.routes")//conversationroutes
 require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 
@@ -19,6 +20,7 @@ app.use(
 app.use("/users", UserRouter);
 app.use("/workspace", WorkspaceRouter);
 app.use("/messages", MessageRouter);
+app.use("/conversations",router);
 app.get("/", (req, res) => {
   res.send("Home");
 });

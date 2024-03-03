@@ -13,6 +13,23 @@ WorkspaceRouter.get("/list",async(req,res)=>{
         res.status(400).json({Error:"Error during getting workspace list"})
     }
 })
+WorkspaceRouter.get("/:workspaceId", async (req, res) => {
+    const workspaceId = req.params.workspaceId;
+    try {
+      let workspace = await WorkspaceModel.findOne({_id:workspaceId});
+  
+      if (workspace) {
+        // Workspace found
+        res.status(200).json({ workspace });
+      } else {
+        // Workspace not found
+        res.status(404).json({ Error: "Workspace not found" });
+      }
+    } catch (error) {
+      res.status(500).json({ Error: "Error during getting workspace details" });
+    }
+  });
+  
 WorkspaceRouter.post("/create",async(req,res)=>{
     try {
         let user = await UserModel.findOne({_id:req.body.userId})
