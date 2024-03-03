@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.css" integrity="sha512-0Nyh7Nf4sn+T48aTb6VFkhJe0FzzcOlqqZMahy/rhZ8Ii5Q9ZXG/1CbunUuEbfgxqsQfWXjnErKZosDSHVKQhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="../styles/chatbox.css">
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <!-- <h1 class="title">TeamConnect</h1> -->
@@ -131,7 +133,7 @@
     <div class="left-column">
         <div class="header">
             <div class="channel-name">
-                <h3>NSD-201</h3>
+                <h3 id="channel-name">NSD-201</h3>
             </div>
              <ul class="nav-icons">
                 <li>
@@ -140,10 +142,10 @@
                         <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                           Dropdown button
                         </button> -->
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="workspace-list">
+                          <!-- <li><a class="dropdown-item" href="#">Action</a></li>
                           <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                       </div>
                 
@@ -157,6 +159,9 @@
                 <i class="fa-solid fa-search"   id="search1"></i>
               <input type="search" placeholder="Search" id="search-input"/>
             </div>
+        </div>
+        <div id="channel-list">
+         
         </div>
         <!-- chatlist -->
         <div class="chatlist">
