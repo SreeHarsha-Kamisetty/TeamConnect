@@ -343,3 +343,37 @@ async function addChannel(channelName){
     console.log(error)
   }
 }
+/* <li><a class="dropdown-item" href="#">Action</a></li> */
+let workspaceList = document.getElementById("workspace-list")
+
+
+function createWorkspaceElement(item){
+ let li_tag = document.createElement("li")
+ let a_tag  = document.createElement("a")
+ a_tag.className = "dropdown-item"
+ a_tag.innerText = item.workspaceName
+ a_tag.setAttribute("data",item._id)
+ li_tag.append(a_tag)
+ a_tag.addEventListener("click",()=>{
+  
+  document.getElementById("channel-name").innerText = a_tag.innerText
+ })
+ return li_tag
+}
+async function getWorkspaceList(){
+  try {
+    let res = await fetch(`http://localhost:8080/workspace/list`)
+
+    let data = await res.json();
+    console.log(data.workspace_list);
+    
+    data.workspace_list.forEach(item =>{
+      let elem = createWorkspaceElement(item)
+      workspaceList.append(elem)
+      console.log(item.channels)
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+getWorkspaceList()
