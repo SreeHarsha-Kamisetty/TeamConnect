@@ -68,6 +68,34 @@ WorkspaceRouter.patch("/add/users/:workspaceId",async(req,res)=>{
     }
 })
 
+WorkspaceRouter.patch("/add/channel/:workspaceId/:channelName",async(req,res)=>{
+    try {
+        let {workspaceId,channelName} = req.params
+        let new_channel = {
+            channelName:channelName
+        }
+        let workspace = await WorkspaceModel.findOne({_id:workspaceId});
+
+        if(!workspace) return res.status(404).json({Error:"Workspace not found"})
+
+        let channels = workspace.channels;
+        let flag = false;
+        channels.forEach(item =>{
+            if(item.channelName == channelName){
+                flag = true;
+            }
+        })
+
+       if(flag) return res.status(401).json({Error:"Channel already exists"})
+        await WorkspaceModel.findByIdAndUpdate({_id:workspaceId},{$push:{channels:new_channel}})
+
+        res.status(200).json({Message:"New channel added"})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({Error:"Error while adding channel"})
+    }
+})
+
 module.exports={
     WorkspaceRouter
 }
