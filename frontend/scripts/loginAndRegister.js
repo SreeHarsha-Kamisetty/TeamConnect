@@ -131,6 +131,7 @@ async function login(email,password){
         localStorage.setItem("userId",data.user._id)
         localStorage.setItem("userImage",data.user.image)
         localStorage.setItem("userEmail",data.user.email)
+        localStorage.setItem("currentWorkspace","65e486f839cff943a451de8d")
 
         if(res.status == 200){
             l_error.setAttribute("style","color:green;")
