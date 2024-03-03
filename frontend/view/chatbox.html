@@ -148,7 +148,7 @@
                       </div>
                 
                 </li>
-                <li><span class="iconify logo" data-icon="bx:edit" data-inline="true" data-width="30px" data-height="30px"></span></li>
+                <li id="channel-create" data-bs-toggle="modal" data-bs-target="#create-channel-modal" ><span class="iconify logo" data-icon="bx:edit" data-inline="true" data-width="30px" data-height="30px" ></span></li>
              </ul>
         </div>
         <!-- search -->
@@ -295,6 +295,33 @@
             </div>
         </div> 
 </section>
+
+<!-- modal for creating channel-->
+<div class="modal fade" id="create-channel-modal" tabindex="-1" aria-labelledby="editProfileImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="sendAttachments">Create New channel</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              
+                <div class="mb-3">
+                    <label for="new-profile-image" class="form-label">New Channel</label>
+                    <input type="text" class="form-control" id="new-channel-name" placeholder="Enter Channel Name">
+                </div>
+             
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="new-channel-button">Submit</button>
+            </div>
+          
+        </div>
+    </div>
+</div> 
 <!-- <h3 class="clients-total" id="clients-total">Total Clients : </h3> -->
 
 <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
