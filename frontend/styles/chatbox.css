@@ -194,36 +194,47 @@ body {
   }
   
 /* chatlist */
-.channels{
-  padding-left: 5%;
-}
+
 .channels h5{
+  padding-left: 5%;
   color: #777777;
 
 }
 .channels .listhead{
+  padding-left: 5%;
   color: #fff;
   cursor: pointer;
 }
+.channels .listhead:hover{
+  background: #f5f5;
+  border-left:#150618 ;
+}
 .chatlist{
+  /* padding-left: 5%; */
   position: relative;
   height: calc(100% - 110px);
   overflow-y: auto;
  
   /* background: yellow; */
 }
+.chatlist .dms h5{
+  padding-left: 5%;
+ color: #777777;
+}
 .chatlist .block1{
+  padding-left: 5%;
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  /* padding: 15px; */
   /* padding-top: 5px; */
   border-bottom:  1px solid #efecef;
   cursor: pointer;
   color: #ffffffc4;
-  height: 14%;
+  height: 8%;
+  padding-right: 2%;
 }
 .chatlist .block1 .active{
   background: #ebebeb;
@@ -234,8 +245,8 @@ body {
 }
 .chatlist .block1 .imgbx{
  position: relative;
- width: 45px;
- height: 45px;
+ width: 20px;
+ height: 20px;
  overflow:hidden;
  border-radius: 50%;
 }
@@ -248,6 +259,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+  padding-top: 4%;
 }
 .chatlist .block1 .details .listhead h4{
   font-size: 1.1em;
@@ -279,10 +291,11 @@ body {
   text-overflow: ellipsis;
 }
 
-.mesg_p b{
+.time b{
+  margin-left:8px;
   background: #7e7e7e;
   color: #fff;
-  min-width: 20px;
+  width: 20px;
   height: 20px;
   border-radius: 50%;
   font-size: 0.75em;
