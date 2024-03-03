@@ -528,3 +528,37 @@ body {
   color: #ebe9e9;
   background: #2d2d2d;
 }
+
+
+/* responsive code */
+/* Media query for smaller screens */
+@media screen and (max-width: 767px) {
+  .container1 {
+    flex-direction: column;
+  }
+  .left-column,
+  .main {
+    flex: 100%;
+  }
+  .sidebar {
+    display: none; /* Hide the sidebar on smaller screens */
+  }
+}
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+  .sidebar {
+    max-width: 300px;
+  }
+}
+
+.sidebar .logo {
+  height: 80px;
+  padding: 16px;
+}
+
+.menu {
+  height: 88%;
+  position: relative;
+  list-style: none;
+  padding: 0;
+}
