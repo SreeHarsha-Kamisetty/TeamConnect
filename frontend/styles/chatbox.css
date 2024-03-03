@@ -194,7 +194,17 @@ body {
   }
   
 /* chatlist */
+.channels{
+  padding-left: 5%;
+}
+.channels h5{
+  color: #777777;
 
+}
+.channels .listhead{
+  color: #fff;
+  cursor: pointer;
+}
 .chatlist{
   position: relative;
   height: calc(100% - 110px);

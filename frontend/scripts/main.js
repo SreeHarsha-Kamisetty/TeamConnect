@@ -71,7 +71,7 @@ function sendMessage() {
 
   socket.emit("message", data);
   addMessagetoUI(true, data);
-  mesgInput.value = "";
+  mesgInput.value ="ghj";
 }
 
 socket.on("chat-group-mesg", (data) => {
