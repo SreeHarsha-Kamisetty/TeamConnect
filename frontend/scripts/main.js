@@ -362,7 +362,7 @@ function createWorkspaceElement(item){
 }
 async function getWorkspaceList(){
   try {
-    let res = await fetch(`http://localhost:8080/workspace/list`)
+    let res = await fetch(`${backendURL}workspace/list`)
 
     let data = await res.json();
     console.log(data.workspace_list);
