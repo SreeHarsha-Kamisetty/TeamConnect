@@ -316,3 +316,30 @@ let user_details_updateBtn = document.getElementById("prof-chg-submit")
 
 user_details_updateBtn.addEventListener("click",updateUserDetails);
 
+//
+let channel_createBtn = document.getElementById("channel-create");
+
+channel_createBtn.addEventListener("click",()=>{
+  
+})
+
+let create_new_channelBtn = document.getElementById("new-channel-button")
+let new_channel_name = document.getElementById("new-channel-name")
+create_new_channelBtn.addEventListener("click",()=>{
+  addChannel(new_channel_name.value)
+})
+
+async function addChannel(channelName){
+  try {
+    let res = await fetch(`${backendURL}workspace/add/channel/65db3412ffb241c5aa43b3e0/${channelName}`,{
+      method:"PATCH",
+      headers:{
+        "Content-type":"application/json"
+      }
+    })
+    let data = await res.json();
+    console.log(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
