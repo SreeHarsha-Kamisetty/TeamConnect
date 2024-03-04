@@ -152,8 +152,11 @@ body {
   display: flex;
   cursor: pointer;
   font-size: 1.5em;
-  color: #7E3585;
+  color: #fff;
   justify-content: space-between;
+}
+.nav-icons li .logo{
+  color: #7E3585;
 }
 .search1 {
   position: relative;
