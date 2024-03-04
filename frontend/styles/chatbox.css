@@ -56,6 +56,7 @@ body {
 }
 .menu li:hover,.active{
   background:#e0e0e058 ;
+  width: inherit;
 }
 
 .menu a{
@@ -67,7 +68,7 @@ body {
   gap: 1.5rem;
 }
 
-.menu a span{
+.menu a span,img{
   overflow: hidden;
 }
 .menu a i{
@@ -200,12 +201,12 @@ body {
   color: #777777;
 
 }
-.channels .listhead{
+.channels .listhead p{
   padding-left: 5%;
   color: #fff;
   cursor: pointer;
 }
-.channels .listhead:hover{
+.channels .listhead p:hover{
   background: #f5f5;
   border-left:#150618 ;
 }
@@ -216,6 +217,17 @@ body {
   overflow-y: auto;
  
   /* background: yellow; */
+}
+#chat-img-span{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+ overflow: hidden;
+}
+#chat-img-span img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .chatlist .dms h5{
   padding-left: 5%;
@@ -322,8 +334,13 @@ body {
 }
 
 #img-span {
+  cursor: pointer;
   margin-right: 10px;
-  margin-bottom: 10px; /* Adjust the margin as needed */
+  margin-bottom: 10px; 
+  position: absolute;
+  bottom: 10%;
+  left:0;
+  width: 100%;/* Adjust the margin as needed */
 }
 
 .more {
@@ -463,8 +480,8 @@ body {
 }
 
 #img-span img {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   margin: 0;
   padding: 0;

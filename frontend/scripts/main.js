@@ -14,6 +14,7 @@ nameInput.textContent = localStorage.getItem("userName");
 const mesg_form = document.getElementById("mesg-form");
 const mesgInput = document.getElementById("mesg-input");
 const imgSpan = document.getElementById("img-span");
+const ChatImgSpan = document.getElementById("chat-img-span");
 const img = localStorage.getItem("userImage");
 let test_img = document.getElementById("test-img");
 let user_email = document.getElementById("user-email");
@@ -380,22 +381,81 @@ async function getWorkspaceList(){
   }
 }
 getWorkspaceList()
+const dmsDiv=document.getElementsByClassName('dms')[0];
 getChannelList(currentWorkspace)
 async function getChannelList(workspaceId){
     try {
       channelList.innerHTML = ""
       let res = await fetch(`${backendURL}workspace/${workspaceId}`)
       let data = await res.json();
-      console.log(data.workspace.users);
+      // dm list 
+       
+      dmsDiv.innerHTML="";
+      let dmHeading=document.createElement("h5");
+      dmHeading.textContent="#direct-messages";
+      dmsDiv.append(dmHeading);
+      let dmList=data.workspace.users;
+      dmList.forEach(user => {
+        // Create the main container div
+        let block1 = document.createElement('div');
+        block1.className = "block1";
+        block1.addEventListener('click',()=>{
+          mesg_container.innerHTML="";
+          nameInput.textContent =user.userName;
+          ChatImgSpan.innerHTML = `<img id="img-tag" src=${user.userImage}>`;
+        })
+        // Create the image container div
+        let imgDiv = document.createElement('div');
+        imgDiv.className = "imgbx";
+    
+        // Create the user image element
+        let userImg = document.createElement('img');
+        userImg.src = user.userImage;
+        userImg.alt = user.userName;
+    
+        // Append userImg to imgDiv
+        imgDiv.appendChild(userImg);
+    
+        // Append imgDiv to block1
+        block1.appendChild(imgDiv);
+    
+        // Create the details container div
+        let details = document.createElement('div');
+        details.className = "details";
+    
+        // Create the lists container div
+        let lists = document.createElement('div');
+        lists.className = "listhead";
+    
+        // Create the username element
+        let username = document.createElement('h6');
+        username.textContent = user.userName;
+    
+        // Append username to lists
+        lists.appendChild(username);
+    
+        // Append lists to details
+        details.appendChild(lists);
+    
+        // Append details to block1
+        block1.appendChild(details);
+    
+        // Append block1 to dmsDiv
+        dmsDiv.appendChild(block1);
+    });
       let channels = data.workspace.channels
       channels.forEach(item =>{
        
         let p_tag = document.createElement('p')
         p_tag.textContent = item.channelName
+        
         p_tag.setAttribute("data-id",item._id)
         p_tag.setAttribute("style","display:block;")
         p_tag.addEventListener("click",(e)=>{
           console.log(e.target.dataset.id);
+          mesg_container.innerHTML="";
+          nameInput.textContent =e.target.textContent;
+          ChatImgSpan.innerHTML="";
         })
         
         channelList.append(p_tag)
@@ -406,45 +466,44 @@ async function getChannelList(workspaceId){
 }
 
 
-// private chats
-let users = [];
 
-const addUser = (userId, socketId) => {
-  !users.some((user) => user.userId === userId) &&
-    users.push({ userId, socketId });
-};
 
-const removeUser = (socketId) => {
-  users = users.filter((user) => user.socketId !== socketId);
-};
 
-const getUser = (userId) => {
-  return users.find((user) => user.userId === userId);
-};
 
-io.on("connection", (socket) => {
-  //when ceonnect
-  console.log("a user connected.");
 
-  //take userId and socketId from user
-  socket.on("addUser", (userId) => {
-    addUser(userId, socket.id);
-    io.emit("getUsers", users);
-  });
 
-  //send and get message
-  socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-    const user = getUser(receiverId);
-    io.to(user.socketId).emit("getMessage", {
-      senderId,
-      text,
-    });
-  });
 
-  //when disconnect
-  socket.on("disconnect", () => {
-    console.log("a user disconnected!");
-    removeUser(socket.id);
-    io.emit("getUsers", users);
-  });
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
