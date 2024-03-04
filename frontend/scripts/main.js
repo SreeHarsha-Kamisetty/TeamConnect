@@ -328,10 +328,10 @@ let new_channel_name = document.getElementById("new-channel-name")
 create_new_channelBtn.addEventListener("click",()=>{
   addChannel(new_channel_name.value)
 })
-
+let currentWorkspace = localStorage.getItem("currentWorkspace");
 async function addChannel(channelName){
   try {
-    let res = await fetch(`${backendURL}workspace/add/channel/65db3412ffb241c5aa43b3e0/${channelName}`,{
+    let res = await fetch(`${backendURL}workspace/add/channel/${currentWorkspace}/${channelName}`,{
       method:"PATCH",
       headers:{
         "Content-type":"application/json"
@@ -339,26 +339,28 @@ async function addChannel(channelName){
     })
     let data = await res.json();
     console.log(data)
+    getChannelList(currentWorkspace)
   } catch (error) {
     console.log(error)
   }
 }
 /* <li><a class="dropdown-item" href="#">Action</a></li> */
 let workspaceList = document.getElementById("workspace-list")
-
+let channelList = document.getElementById("ch-list");
 
 function createWorkspaceElement(item){
  let li_tag = document.createElement("li")
  let a_tag  = document.createElement("a")
  a_tag.className = "dropdown-item"
  a_tag.innerText = item.workspaceName
- a_tag.setAttribute("data",item._id)
+ a_tag.setAttribute("data-id",item._id)
  li_tag.append(a_tag)
- a_tag.addEventListener("click",()=>{
+ a_tag.addEventListener("click",(e)=>{
   
-  document.getElementById("channel-name").innerText = a_tag.innerText;
-  getUsers(item._id);
-  })
+  document.getElementById("workspace-name").innerText = a_tag.innerText
+  localStorage.setItem("currentWorkspace",e.target.dataset.id);
+  getChannelList(e.target.dataset.id) // update channel list 
+ })
  return li_tag
 }
 async function getWorkspaceList(){
@@ -378,6 +380,30 @@ async function getWorkspaceList(){
   }
 }
 getWorkspaceList()
+getChannelList(currentWorkspace)
+async function getChannelList(workspaceId){
+    try {
+      channelList.innerHTML = ""
+      let res = await fetch(`${backendURL}workspace/${workspaceId}`)
+      let data = await res.json();
+      let channels = data.workspace.channels
+      channels.forEach(item =>{
+       
+        let p_tag = document.createElement('p')
+        p_tag.textContent = item.channelName
+        p_tag.setAttribute("data-id",item._id)
+        p_tag.setAttribute("style","display:block;")
+        p_tag.addEventListener("click",(e)=>{
+          console.log(e.target.dataset.id);
+        })
+        
+        channelList.append(p_tag)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+}
+
 
 
 
