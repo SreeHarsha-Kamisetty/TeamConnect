@@ -386,6 +386,7 @@ async function getChannelList(workspaceId){
       channelList.innerHTML = ""
       let res = await fetch(`${backendURL}workspace/${workspaceId}`)
       let data = await res.json();
+      console.log(data.workspace.users);
       let channels = data.workspace.channels
       channels.forEach(item =>{
        
