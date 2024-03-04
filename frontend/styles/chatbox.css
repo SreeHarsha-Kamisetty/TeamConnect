@@ -201,12 +201,12 @@ body {
   color: #777777;
 
 }
-.channels .listhead{
+.channels .listhead p{
   padding-left: 5%;
   color: #fff;
   cursor: pointer;
 }
-.channels .listhead:hover{
+.channels .listhead p:hover{
   background: #f5f5;
   border-left:#150618 ;
 }
@@ -217,6 +217,17 @@ body {
   overflow-y: auto;
  
   /* background: yellow; */
+}
+#chat-img-span{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+ overflow: hidden;
+}
+#chat-img-span img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .chatlist .dms h5{
   padding-left: 5%;
