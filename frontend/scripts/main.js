@@ -72,7 +72,7 @@ function sendMessage() {
 
   socket.emit("message", data);
   addMessagetoUI(true, data);
-  mesgInput.value ="ghj";
+  document.getElementsByClassName("emojionearea-editor")[0].innerText ="";
 }
 
 socket.on("chat-group-mesg", (data) => {
